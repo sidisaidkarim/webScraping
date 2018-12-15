@@ -15,7 +15,7 @@ for i in range(2,100):
     plugins = soup.find_all('article')
     for plugin in plugins:
         name = plugin.find('h2').get_text().replace('\n',' ')
-
+        #get active installation text, than remove text and get int value
         text_istallation= plugin.find(class_="active-installs" ).get_text().replace('\n','')
         nb_istallation = re.sub('\n|\t|\+ active installations','',text_istallation)
         nb_istallation2 = re.sub('\+ million active installations','000000',nb_istallation)
